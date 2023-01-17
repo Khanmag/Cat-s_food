@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import CatCard from "./components/CatCard";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1 className={'main_title'}>Ты сегодня покормил кота?</h1>
+        <div className={'cards_wrapper'}>
+            <CatCard taste={'с фуагра'} weight={'0,5'} disabled={true}/>
+            <CatCard taste={'с рыбой'} weight={'2'} disabled={false}/>
+            <CatCard taste={'с курой'} weight={'5'} disabled={false}/>
+        </div>
+
     </div>
   );
 }
