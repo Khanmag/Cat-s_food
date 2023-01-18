@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import s from './CatCard.module.css'
-import catImage from '../local_image/cat.png'
-import {click} from "@testing-library/user-event/dist/click";
 
 const CatCard = ({taste, weight, disabled}) => {
     const tasteDescription = {
@@ -36,15 +34,18 @@ const CatCard = ({taste, weight, disabled}) => {
 
     const [selected, setSelect] = useState(false)
     const [wasHover, setWasHover] = useState(false)
+
     const onHandleClick = () => {
         if (!disabled) setSelect(!selected)
     }
-    const border_style = disabled ? {borderColor: '#B3B3B3'} : (selected || wasHover) ? {borderColor: '#D91667'} : {}
-    const bg_style = disabled ? {background: '#B3B3B3'} : (selected || wasHover) ? {background: '#D91667'} : {}
-
     const mouseOutEvent = (e) => {
         if (!disabled) setWasHover(true)
     }
+
+    const border_style = disabled ? {borderColor: '#B3B3B3'} : (selected || wasHover) ? {borderColor: '#D91667'} : {}
+    const bg_style = disabled ? {background: '#B3B3B3'} : (selected || wasHover) ? {background: '#D91667'} : {}
+
+
 
     return (
         <div className={s.cat_card_wrapper}>
@@ -58,6 +59,7 @@ const CatCard = ({taste, weight, disabled}) => {
                         : <p>Сказочное заморское яство</p>
                     }
                 </div>
+
                 <div className={s.cat_card_body}>
                     <p className={s.label_name}>Нямушка</p>
                     <p className={s.taste_name}>{taste}</p>
@@ -70,6 +72,7 @@ const CatCard = ({taste, weight, disabled}) => {
                         <p>{weight}<br/><span>кг</span></p>
                     </div>
                 </div>
+
                 <div className={s.for_hover}
                      onMouseOut={mouseOutEvent}
                 >
@@ -78,7 +81,9 @@ const CatCard = ({taste, weight, disabled}) => {
                         <div className={s.body_wrapper}></div>
                     </>}
                 </div>
+
             </div>
+
             {(selected || wasHover)
                 ? <p className={s.bottom_text}>{tasteDescription[taste]}</p>
                 : <p className={s.bottom_text}>чего сидишь? Порадуй котэ,
@@ -86,6 +91,7 @@ const CatCard = ({taste, weight, disabled}) => {
                     <strong>.</strong>
                 </p>
             }
+
         </div>
     );
 };

@@ -1,6 +1,5 @@
 @font-face {
   font-family: 'Exo';
-  /*src: url('TrebuchetMS.eot');*/
   src: url('./fonts/Exo.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
@@ -19,7 +18,6 @@ body {
 }
 .cards_wrapper {
   display: flex;
-  /*margin: 0 -80px;*/
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
